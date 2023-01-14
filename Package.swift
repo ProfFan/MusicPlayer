@@ -28,12 +28,14 @@ let package = Package(
             ], cSettings: [
                 .define("TARGET_OS_MAC", to: "1", .when(platforms: [.macOS, .iOS])),
                 .define("TARGET_OS_IPHONE", to: "1", .when(platforms: [.iOS])),
+                .define("TARGET_OS_IPHONE", to: "0", .when(platforms: [.macOS])),
             ]),
         .target(
             name: "LXMusicPlayer",
             cSettings: [
                 .define("TARGET_OS_MAC", to: "1", .when(platforms: [.macOS, .iOS])),
                 .define("TARGET_OS_IPHONE", to: "1", .when(platforms: [.iOS])),
+                .define("TARGET_OS_IPHONE", to: "0", .when(platforms: [.macOS])),
                 .headerSearchPath("private"),
                 .headerSearchPath("BridgingHeader"),
             ]),
@@ -42,6 +44,7 @@ let package = Package(
             cSettings: [
                 .define("TARGET_OS_MAC", to: "1", .when(platforms: [.macOS, .iOS])),
                 .define("TARGET_OS_IPHONE", to: "1", .when(platforms: [.iOS])),
+                .define("TARGET_OS_IPHONE", to: "0", .when(platforms: [.macOS])),
             ]),
         .systemLibrary(name: "playerctl", pkgConfig: "playerctl"),
     ]
